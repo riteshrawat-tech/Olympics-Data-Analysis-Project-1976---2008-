@@ -5,7 +5,7 @@ df = pd.read_csv(r'C:\Users\HP\OneDrive\Documents\Summer-Olympic-medals-1976-to-
 
 
 print(df.head(10))
-# Step 2️⃣: Explore dataset
+# Explore dataset
 print("----- BASIC INFO -----")
 print(df.info())
 print("\n----- MISSING VALUES -----")
@@ -13,7 +13,7 @@ print(df.isnull().sum())
 print("\n----- FIRST 5 ROWS -----")
 print(df.head())
 
-# Step 3️⃣: Basic details
+#Basic details
 years = df['Year'].unique()
 num_sports = df['Sport'].nunique()
 num_countries = df['Country'].nunique()
@@ -22,17 +22,17 @@ print("\nYears Covered:", years)
 print("Number of Sports:", num_sports)
 print("Number of Countries:", num_countries)
 
-# Step 4️⃣: Total medals by country
+#  Total medals by country
 country_medals = df['Country'].value_counts().head(10)
 print("\n----- TOP 10 COUNTRIES (TOTAL MEDALS) -----")
 print(country_medals)
 
-# Step 5️⃣: Gold medals by country
+#  Gold medals by country
 gold_medals = df[df['Medal'] == 'Gold']['Country'].value_counts().head(10)
 print("\n----- TOP 10 COUNTRIES (GOLD MEDALS) -----")
 print(gold_medals)
 
-# Step 6️⃣: Medals over time
+#  Medals over time
 medals_by_year = df.groupby('Year')['Medal'].count()
 
 plt.figure(figsize=(8,5))
@@ -43,17 +43,17 @@ plt.ylabel('Total Medals')
 plt.grid(True)
 plt.show()
 
-# Step 7️⃣: Top athletes
+# Top athletes
 top_athletes = df['Athlete'].value_counts().head(10)
 print("\n----- TOP 10 ATHLETES BY MEDALS -----")
 print(top_athletes)
 
-# Step 8️⃣: Top sports
+#Top sports
 top_sports = df['Sport'].value_counts().head(10)
 print("\n----- TOP 10 SPORTS BY MEDALS -----")
 print(top_sports)
 
-# Step 9️⃣: Visualizations
+# Visualizations
 
 # a) Total Medals by Country
 country_medals.plot(kind='bar', color='skyblue', title='Top 10 Countries by Total Medals', figsize=(8,5))
@@ -73,7 +73,7 @@ plt.xlabel('Total Medals')
 plt.ylabel('Sport')
 plt.show()
 
-print("\n✅ ANALYSIS COMPLETE — Dataset covers 9 Olympics (1976–2008).")
+print("\n ANALYSIS COMPLETE — Dataset covers 9 Olympics (1976–2008).")
 
 #Gender distribution of events and medals
 gender_medal_count = df['Gender'].value_counts()
@@ -96,3 +96,4 @@ plt.title('Gender Distribution of Events')
 plt.xlabel('Gender')
 plt.ylabel('Number of Events')
 plt.show()
+
